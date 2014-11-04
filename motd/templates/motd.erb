@@ -1,0 +1,28 @@
+
+The configuration of this server is managed by Puppet Enterprise.
+Please do not configure this server manually, as changes might be overwritten automatically.
+
+hostname:		<%= @fqdn %>
+location:		<%= @location %>
+building:		<%= @building %>
+stage:			<%= @stage %>
+server function:	<%= @server_function %>
+<% if @operatingsystem == ("CentOS") then -%>
+operating system:	<%= @operatingsystem %> <%= @operatingsystemrelease %> 
+<% end -%>
+<% if @operatingsystem == ("OracleLinux") and virtual != ("xen0") then -%>
+operating system:	<%= @operatingsystem %> <%= @operatingsystemrelease %> 
+<% end -%>
+<% if @lsbdistid == ("OracleVMserver") then -%>
+operating system:       <%= @lsbdistdescription %>
+<% end -%>
+kernelrelease:		<%= @kernelrelease %>
+processorcount:		<%= @processorcount %>
+processor type:		<%= @processor0 %>
+memory:			<%= @memorytotal %>
+<% if @is_virtual == ("true") then -%>
+servertype:		virtual (<%= @virtual %>) 
+<% end -%>
+<% if @is_virtual != "true" then -%>
+servertype:		physical
+<% end -%>
