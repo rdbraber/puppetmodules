@@ -11,8 +11,8 @@
 # 2             Rome            Development
 # 3             Madrid          Testing
 # 4             Rome            Testing
-# 5				Madrid			Production
-# 6				Rome			Production
+# 5		Madrid		Production
+# 6		Rome		Production
 
 Facter.add(:stage) do
   setcode do
