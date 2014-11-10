@@ -12,6 +12,7 @@
 # 4		Rome            Testing
 # 5		Madrid		Production
 # 6		Rome		Production
+# 9		Amsterdam	Puppettesting
 
 Facter.add(:location) do
   setcode do
@@ -20,6 +21,8 @@ Facter.add(:location) do
       "Madrid"
     elsif host[3,1] == "2" or host[3,1] == "4" or host[3,1] == "6"
      "Rome"
+    elsif host[3,1] == "9"
+     "Amsterdam"
     end
   end
 end

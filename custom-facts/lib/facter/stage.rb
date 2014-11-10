@@ -13,6 +13,7 @@
 # 4             Rome            Testing
 # 5		Madrid		Production
 # 6		Rome		Production
+# 7		Amsterdam	Puppettesting
 
 Facter.add(:stage) do
   setcode do
@@ -23,6 +24,8 @@ Facter.add(:stage) do
      "Testing"
     elsif host[3,1] == "5" or host[3,1] == "6" 
      "Production"
+    elsif host[3,1] == "9"
+     "Puppettesting"
     end
   end
 end
