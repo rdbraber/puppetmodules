@@ -5,16 +5,19 @@
 # Resolution: Takes the first three characters of the hostname to determine the function.
 #
 #
+# dbs	database server
+# web	web server
+# ovs	Oracle VM server
 
 Facter.add(:server_function) do
   setcode do
     host = Facter.value(:hostname)
     if host.match(/^dbs/)
-      "Database server"
+      "database_server"
     elsif host.match(/^web/)
-     "Web server"
+     "web_server"
     elsif host.match(/^ovs/)
-     "OVS server"
+     "ovs_server"
     end
   end
 end
