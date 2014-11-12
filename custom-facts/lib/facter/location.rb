@@ -8,18 +8,16 @@
 # character	location	stage
 # 1		Madrid		Development
 # 2		Rome		Development
-# 3		Madrid          Testing
-# 4		Rome            Testing
-# 5		Madrid		Production
-# 6		Rome		Production
+# 3		Madrid		Production
+# 4		Rome		Production
 # 9		Amsterdam	Puppettesting
 
 Facter.add(:location) do
   setcode do
     host = Facter.value(:hostname)
-    if host[3,1] == "1" or host[3,1] == "3" or host[3,1] == "5" 
+    if host[3,1] == "1" or host[3,1] == "3" 
       "Madrid"
-    elsif host[3,1] == "2" or host[3,1] == "4" or host[3,1] == "6"
+    elsif host[3,1] == "2" or host[3,1] == "4"
      "Rome"
     elsif host[3,1] == "9"
      "Amsterdam"
