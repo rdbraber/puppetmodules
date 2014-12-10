@@ -37,6 +37,10 @@ class oracle_db_settings {
     }
 
 
+  package { 'nfs-utils':
+    ensuer	=> 'present',
+  }
+
   package { 'compat-libcap1':
     ensure      => 'present',
   }
@@ -207,17 +211,17 @@ class { 'limits':
       mode    => "0775",
     }
 
-#    file { "/software":
-#      ensure  => "directory",
-#    }
+    file { "/dbsoftware":
+      ensure  => "directory",
+    }
    
-#    mount { "/software":
-#	device    => "wbb2nas:/Oracle/software",
-#       fstype    => "nfs",
-#        ensure    => "mounted",
-#        options   => "defaults,ro",
-#        atboot    => "true",
-#	require   => File['/software'],
-#    }
+    mount { "/software":
+	device    => "puppetmaster:/repos/dbsoftware",
+      fstype    => "nfs",
+        ensure    => "mounted",
+        options   => "defaults,ro",
+        atboot    => "true",
+	require   => File['/dbsoftware'],
+    }
 
 }
