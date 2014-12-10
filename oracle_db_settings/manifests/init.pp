@@ -216,27 +216,6 @@ class { 'limits':
       mode    => "0775",
     }
 
-    file { "/u01/app/oracle":
-      ensure  => "directory",
-      owner   => "oracle",
-      group   => "oinstall",
-      mode    => "0775",
-    }
-
-    file { "/u01/app/oracle/product":
-      ensure  => "directory",
-      owner   => "oracle",
-      group   => "oinstall",
-      mode    => "0775",
-    }
-
-    file { "/u01/app/oracle/product/11.2":
-      ensure  => "directory",
-      owner   => "oracle",
-      group   => "oinstall",
-      mode    => "0775",
-    }
-
     file { "/dbsoftware":
       ensure  => "directory",
     }
