@@ -38,7 +38,7 @@ class oracle_db_settings {
 
 
   package { 'nfs-utils':
-    ensuer	=> 'present',
+    ensure	=> 'present',
   }
 
   package { 'compat-libcap1':
