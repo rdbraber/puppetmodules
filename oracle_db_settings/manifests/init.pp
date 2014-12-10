@@ -215,7 +215,7 @@ class { 'limits':
       ensure  => "directory",
     }
    
-    mount { "/software":
+    mount { "/dbsoftware":
 	device    => "puppetmaster:/repos/dbsoftware",
       fstype    => "nfs",
         ensure    => "mounted",
