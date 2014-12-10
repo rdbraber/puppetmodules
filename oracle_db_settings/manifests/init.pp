@@ -224,7 +224,7 @@ class { 'limits':
 	device    => "puppetmaster:/repos/dbsoftware",
       fstype    => "nfs",
         ensure    => "mounted",
-        options   => "defaults,ro",
+        options   => "defaults,rw",
         atboot    => "true",
 	require   => File['/dbsoftware'],
     }
