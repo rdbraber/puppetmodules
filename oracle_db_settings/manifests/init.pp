@@ -24,11 +24,16 @@ class oracle_db_settings {
     gid     => '3002',
   }
 
+  group { 'oper':
+    ensure  => 'present',
+    gid     => '3003',
+  }
+
   user { 'oracle':
     ensure  	   => 'present',
     comment        => 'NPA',
     gid              => '3002',
-    groups           => ['oinstall'],
+    groups           => ['oinstall','oper'],
     home             => '/home/oracle/',
     managehome	     => true,
     password         => '$6$TdQGH1xQf8y6vVro$J8CDXjimcWxOoIoJG0MT4HC2Ig6yajJ7aepDQgbh5DvT0IOBZmsP8Z6EtLaoOkqKVpMJxN0G2ugk0Eu6bYx5K1',
@@ -205,6 +210,27 @@ class { 'limits':
     }
 
     file { "/u01/app":
+      ensure  => "directory",
+      owner   => "oracle",
+      group   => "oinstall",
+      mode    => "0775",
+    }
+
+    file { "/u01/app/oracle":
+      ensure  => "directory",
+      owner   => "oracle",
+      group   => "oinstall",
+      mode    => "0775",
+    }
+
+    file { "/u01/app/oracle/product":
+      ensure  => "directory",
+      owner   => "oracle",
+      group   => "oinstall",
+      mode    => "0775",
+    }
+
+    file { "/u01/app/oracle/product/11.2":
       ensure  => "directory",
       owner   => "oracle",
       group   => "oinstall",
