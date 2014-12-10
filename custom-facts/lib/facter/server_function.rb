@@ -18,6 +18,8 @@ Facter.add(:server_function) do
      "web_server"
     elsif host.match(/^ovs/)
      "ovs_server"
+    elsif host.match(/^ora/)
+     "Oracle_server"
     end
   end
 end
